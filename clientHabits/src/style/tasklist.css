@@ -1,0 +1,59 @@
+.tasklist {
+  margin: 60px;
+}
+
+.tasklistHabitsTask {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.tasklist input {
+  width: 20px;
+  height: 20px;
+}
+
+.tasklist textarea {
+  width: 100%;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.tasklist .task-title {
+  height: 40px;
+  line-height: 30px;
+}
+
+.tasklist .task-description {
+  height: 100px;
+  padding-top: 40px; 
+}
+
+.tasklist button {
+  background-color: transparent;
+  border: solid transparent;
+  border-radius: 25px;
+  color: black;
+  cursor: pointer;
+  transition: 0.5s ease;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px 10px;
+  padding: 10px;
+  margin-top: 25px;
+}
+
+.tasklist button:hover {
+  border-color: gainsboro;
+  background-color: gainsboro;
+}
+
+.save-button {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+}

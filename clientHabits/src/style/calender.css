@@ -1,0 +1,121 @@
+.calendar {
+  margin: 60px auto;
+  padding: 40px;
+  background-color: #f0f0f0;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 1000px;
+  width: 90%;
+  box-sizing: border-box;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2),
+  0 12px 24px rgba(0,0,0,0.15),
+  0 12px 24px rgba(0,0,0,0.1);
+
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.calendar button {
+  padding: 10px 24px;
+  cursor: pointer;
+  border: 1px solid gainsboro;
+  background-color: gainsboro;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  flex-shrink: 1;
+  min-width: 80px;
+}
+
+.calendar button:hover {
+  border-color: lightgray;
+  background-color: lightgray;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px; 
+}
+
+.calendar-weekday {
+  font-weight: bold;
+  padding: 16px;
+  background-color: #00bcd4;
+  color: white;
+  border-radius: 12px;
+  font-size: 14px;
+  box-sizing: border-box;
+  width: 100%; 
+  text-align: center;
+}
+
+.calendar-day {
+  padding: 24px;
+  background-color: gainsboro;
+  border-radius: 12px;
+  font-size: 12px;
+  box-sizing: border-box;
+  width: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.calendar-day.blank {
+  background-color: transparent;
+}
+
+.calendar-day.today {
+  background-color: #b0c4de;
+  font-weight: bold;
+  border: 2px solid #007bff;
+}
+
+/* Responsiva regler */
+@media (max-width: 900px) {
+  .calendar {
+    padding: 30px;
+  }
+
+  .calendar button {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .calendar-weekday,
+  .calendar-day {
+    padding: 30px; 
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .calendar button {
+    padding: 6px 12px;
+    font-size: 12px;
+    min-width: 60px;
+  }
+
+  .calendar-weekday,
+  .calendar-day {
+    padding: 12px; 
+    font-size: 12px;
+  }
+
+  .calendar-grid {
+    gap: 6px; 
+  }
+}

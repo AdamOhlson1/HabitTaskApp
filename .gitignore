@@ -1,0 +1,23 @@
+# Node/Vite
+node_modules/
+dist/
+.env
+*.log
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.db
+*.pdb
+
+# User secrets (C#)
+secrets.json
