@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../style/tasklist.css";
 import { motion } from "framer-motion";
+import { CirclePlus, CircleMinus } from "lucide-react";
 
 type Task = {
   title: string;
@@ -58,9 +59,8 @@ const TaskList = () => {
         );
 
         if (!response.ok) {
-          // Enkel text till användaren, detaljer i console
           console.error(
-            `Failed to save task: ${task.title}`,
+            `Misslyckades att spara task: ${task.title}`,
             await response.text()
           );
           alert(`Misslyckades att spara task: ${task.title}`);
@@ -92,7 +92,7 @@ const TaskList = () => {
           <span>
             <textarea
               className="task-title"
-              placeholder="Enter your task"
+              placeholder="Döp din task"
               value={task.title}
               onChange={(e) => handleChange(index, "title", e.target.value)}
             />
@@ -101,7 +101,7 @@ const TaskList = () => {
           <span>
             <textarea
               className="task-description"
-              placeholder="Description"
+              placeholder="Beskrivning"
               value={task.description}
               onChange={(e) =>
                 handleChange(index, "description", e.target.value)
@@ -110,15 +110,21 @@ const TaskList = () => {
           </span>
 
           {tasks.length > 1 && (
-            <button type="button" onClick={() => removeTask(index)}>
-              Remove
+            <button
+              title="Ta bort"
+              type="button"
+              onClick={() => removeTask(index)}
+            >
+              <CircleMinus />
             </button>
           )}
         </div>
       ))}
 
       <div>
-        <button onClick={addTask}>Add new task</button>
+        <button title="Lägg till nytt task" onClick={addTask}>
+          <CirclePlus />
+        </button>
       </div>
     </motion.div>
   );

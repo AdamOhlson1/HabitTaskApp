@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../style/homepage.css";
 import { motion } from "framer-motion";
+import { Pen, Trash } from "lucide-react";
 
 type Task = {
   id: number;
@@ -23,7 +24,7 @@ const Home = () => {
   const [editDescription, setEditDescription] = useState("");
 
   const token = localStorage.getItem("token");
-  const apiUrl = import.meta.env.VITE_API_URL; // ✅ Använd .env
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     if (!token) return;
@@ -59,7 +60,6 @@ const Home = () => {
     fetchData();
   }, [token, apiUrl]);
 
-  // ✅ Toggle completion
   const toggleCheck = async (taskId: number) => {
     if (!token) return;
 
@@ -123,14 +123,12 @@ const Home = () => {
     }
   };
 
-  // ✏️ Starta redigering
   const startEditing = (task: Task) => {
     setEditingTaskId(task.id);
     setEditTitle(task.title);
     setEditDescription(task.description);
   };
 
-  // 💾 Spara ändring
   const saveEdit = async (taskId: number) => {
     if (!token) return;
 
@@ -212,12 +210,14 @@ const Home = () => {
                   </span>
                   {task.description && <small> {task.description}</small>}
                   <div className="task-actions">
-                    <button onClick={() => startEditing(task)}>Ändra</button>
+                    <button onClick={() => startEditing(task)}>
+                      <Pen />
+                    </button>
                     <button
                       className="delete-btn"
                       onClick={() => handleDelete(task.id)}
                     >
-                      Radera
+                      <Trash />
                     </button>
                   </div>
                 </>

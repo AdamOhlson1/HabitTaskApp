@@ -1,6 +1,7 @@
 import "../style/navbar.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Calendar, House, LogIn, LogOut, BadgePlus } from "lucide-react";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -56,16 +57,26 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <button onClick={() => navigate("/")}>Home</button>
-        <button onClick={() => navigate("/tasklist")}>Tasklist</button>
-        <button onClick={() => navigate("/calender")}>Kalender</button>
+        <button title="Hem" onClick={() => navigate("/")}>
+          <House />
+        </button>
+        <button title="Skapa Task" onClick={() => navigate("/tasklist")}>
+          <BadgePlus />
+        </button>
+        <button title="Kalender" onClick={() => navigate("/calender")}>
+          <Calendar />
+        </button>
       </div>
 
       <div className="navbar-right">
         {isLoggedIn ? (
-          <button onClick={handleLogout}>Logga ut</button>
+          <button title="Logga ut" onClick={handleLogout}>
+            <LogOut />
+          </button>
         ) : (
-          <button onClick={() => navigate("/login")}>Logga in</button>
+          <button title="Logga in" onClick={() => navigate("/login")}>
+            <LogIn />
+          </button>
         )}
       </div>
     </nav>
